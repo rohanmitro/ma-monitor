@@ -108,8 +108,6 @@ df[['acquirer', 'acquired_entity', 'price', 'price_unit', 'acquirer_pattern', 'a
 
 # Keep only relevant columns
 df_result = df[['title', 'description', 'acquirer', 'acquired_entity', 'price', 'price_unit', 'url', 'acquirer_entities', 'acquired_entities', 'named_entities']]
-# Remove rows with missing acquirer or acquired entity
-# df_result = df_result.dropna(subset=['acquirer', 'acquired_entity'])
 
 # Remove prices which does not have a unit - they are potentially incorrect, e.g have years, etc. can be '' or None
 df_result = df_result[df_result['price_unit'].notnull() & (df_result['price_unit'] != '')]

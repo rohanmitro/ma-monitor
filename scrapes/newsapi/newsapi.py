@@ -29,7 +29,8 @@ search_phrases = [
     'Akquisition',              # Acquisition
     'Übernahme'                 # Takeover
 ]
-search_phrases = search_phrases.lower()
+# Lowercase the search phrases
+search_phrases = [phrase.lower() for phrase in search_phrases]
 from_date = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
 to_date = datetime.now().strftime('%Y-%m-%d')
 language = 'de'
@@ -44,4 +45,4 @@ for phrase in search_phrases:
 df = pd.DataFrame(all_articles)
 
 # Save to CSV
-df.to_csv('data/german_ma_articles.csv', index=False)
+df.to_csv(f'data/german_ma_articles_{from_date}_{to_date}.csv', index=False)
