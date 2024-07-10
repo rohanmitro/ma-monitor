@@ -109,7 +109,7 @@ Ensure you have the following installed on your machine:
     python etl/etl.py
     ```
 ## Example Usage
-The newsapi.py script fetches German-language news articles related to M&A. The etl.py script processes the fetched articles to extract relevant M&A information.
+The `newsapi.py` script fetches German-language news articles related to M&A. The `etl.py` script processes the fetched articles to extract relevant M&A information.
 
 ## Future Work
 - Integrate additional data sources such as Bundeskartellamt, Unternehmensregister, and Bundesanzeiger.
