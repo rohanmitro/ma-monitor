@@ -1,10 +1,22 @@
 # ma-monitor
-# Mergers & Acquisitions Monitoring Project
+# Mergers & Acquisitions Monitor PoC
 
 ## Overview
 
-This project aims to monitor and extract information on mergers and acquisitions (M&A) in Germany. The focus is to gather relevant data from multiple sources, including news aggregators, financial news websites, industry-specific platforms, regulatory and government websites, press release services, and social media. The extracted data will be processed, stored, and analyzed to provide valuable insights into the M&A landscape.
+This project is a Proof of Concept (PoC) for monitoring and extracting information on mergers and acquisitions (M&A) in Germany. The project leverages various data sources and text parsing techniques to extract relevant M&A information from news articles.
 
+```bash
+├── data               # Raw data files (Input)
+├── output             
+│   ├── newsapi        # Output for NewsAPI scraping
+├── notebooks          # Any Jupyter notebooks for analysis and development(Future)
+├── scrapes            # Scripts for data scraping
+│   ├── newsapi        # Scripts for NewsAPI scraping
+├── etl                # ETL (Extract, Transform, Load) scripts
+├── reports            # Generated reports and summaries (Future)
+├── requirements.txt   # Python dependencies
+└── README.md          # Project README
+```
 ## Project Goals
 
 - **Automate Data Collection**: Use web scraping, APIs, and RSS feeds to gather M&A information from various sources.
@@ -13,7 +25,10 @@ This project aims to monitor and extract information on mergers and acquisitions
 - **Data Analysis and Visualization**: Generate reports and dashboards to visualize M&A trends and activities.
 
 ## Data Sources
+### Used in PoC
+- [News API](https://newsapi.org): Aggregates news articles from various sources. Used to fetch German-language articles related to M&A.
 
+### Potential Data Sources
 | **Category**               | **Source**                                           | **Type**             | **Description**                                                                 | **URL**                                                             | **RSS Feed**                                                        |
 |----------------------------|------------------------------------------------------|----------------------|---------------------------------------------------------------------------------|---------------------------------------------------------------------|---------------------------------------------------------------------|
 | **News Aggregators**       | Google News                                          | Web Scraping     | Comprehensive source for various news articles, including press releases and financial news. | [Google News](https://news.google.com)                              | No                                                                  |
@@ -45,19 +60,52 @@ This project aims to monitor and extract information on mergers and acquisitions
 
 Ensure you have the following installed on your machine:
 
-- Python 3.x
+- Python 3.12.x
 - pip (Python package installer)
-- Jupyter Notebook (optional but recommended for interactive data exploration)
 
 ### Installation
 
-1. **Clone the Repository**
-   ```sh
-   git clone https://github.com/yourusername/ma-monitor.git
-   cd ma-monitor
-   ```
-2. **Install Dependencies**
-    ```sh
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/your-repo/ma-monitor.git
+    cd ma-monitor
+    ```
+
+2. **Set up a virtual environment**:
+    ```bash
+    python3 -m venv .venv
+    source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+    ```
+
+3. **Install the dependencies**:
+    ```bash
     pip install -r requirements.txt
     ```
+ 4. **Download the spaCy German language model**:
+ ```bash
+ python -m spacy download de_core_news_sm
+ ```
+    
+5. **Get your NewsAPI Key**:
+    - Go to [NewsAPI](https://newsapi.org/register) and sign up for an API key.
+    - Once you have your API key, set it as an environment variable:
+        ```bash
+        export NEWS_API_KEY="your_newsapi_key"
+        ```
+6. **Run the data extraction script**:
+    ```bash
+    python scrapes/newsapi/newsapi.py
+    ```
+
+7. **Process the extracted data**:
+    ```bash
+    python etl/etl.py
+    ```
+## Example Usage
+The newsapi.py script fetches German-language news articles related to M&A. The etl.py script processes the fetched articles to extract relevant M&A information.
+
+## Future Work
+- Integrate additional data sources such as Bundeskartellamt, Unternehmensregister, and Bundesanzeiger.
+- Enhance NLP techniques to improve the accuracy of entity extraction and information retrieval.
+- Develop a web interface for real-time monitoring and reporting.
 
