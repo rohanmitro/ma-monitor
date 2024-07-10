@@ -29,6 +29,7 @@ search_phrases = [
     'Akquisition',              # Acquisition
     'Übernahme'                 # Takeover
 ]
+search_phrases = search_phrases.lower()
 from_date = (datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')
 to_date = datetime.now().strftime('%Y-%m-%d')
 language = 'de'
