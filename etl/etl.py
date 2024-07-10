@@ -114,7 +114,7 @@ df_result = df[['title', 'description', 'acquirer', 'acquired_entity', 'price', 
 # Remove prices which does not have a unit - they are potentially incorrect, e.g have years, etc. can be '' or None
 df_result = df_result[df_result['price_unit'].notnull() & (df_result['price_unit'] != '')]
 # Save to CSV
-output_file = os.path.join('data', 'structured_acquisitions.csv')
+output_file = os.path.join('output/newsapi', 'acquisitions.csv')
 df_result.to_csv(output_file, index=False)
 
 # Display the result for verification
