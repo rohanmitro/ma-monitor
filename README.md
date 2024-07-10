@@ -114,5 +114,4 @@ The newsapi.py script fetches German-language news articles related to M&A. The 
 ## Future Work
 - Integrate additional data sources such as Bundeskartellamt, Unternehmensregister, and Bundesanzeiger.
 - Enhance NLP techniques to improve the accuracy of entity extraction and information retrieval.
-- Develop a web interface for real-time monitoring and reporting.
 
